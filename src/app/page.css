@@ -12,7 +12,6 @@
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
-  background-color: #080705;
 }
 
 .widget {
@@ -22,12 +21,11 @@
   height: 500px;
   width: 500px;
   transform: translate(-50%, -50%);
-  /* background: linear-gradient(120deg, #06022ec8, #08076743, #02053a5a); */
+  background: linear-gradient(120deg, #06022ec8, #08076743, #02053a5a);
   background-color:white ;
   cursor: pointer;
   border-radius: 20px;
   box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
 }
 
 .weatherLocation{
