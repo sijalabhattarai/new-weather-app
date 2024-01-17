@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState, useEffect } from "react";
 import styles from "./page.css";
 
@@ -11,12 +11,14 @@ function getCurrentDate() {
 }
 
 const Home = () => {
+  const date = getCurrentDate();
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState("lahore");
 
   async function fetchData(cityName) {
     try {
       const response = await fetch(`/api/weather?address=${cityName}`);
+
       const jsonData = (await response.json()).data;
       setWeatherData(jsonData);
     } catch (error) {
@@ -27,7 +29,7 @@ const Home = () => {
   async function fetchDataByCoordinates(latitude, longitude) {
     try {
       const response = await fetch(
-        `/api/weather?lat=${latitude}&lon=${longitude}`
+        `http://localhost:3000/api/weather?lat=${latitude}&lon=${longitude}`
       );
       const jsonData = (await response.json()).data;
       setWeatherData(jsonData);
@@ -72,14 +74,15 @@ const Home = () => {
             Search
           </button>
         </form>
-
         {weatherData && weatherData.weather && weatherData.weather[0] ? (
           <>
             <div className="icon_and_weatherInfo">
               <div className="weatherIcon">
                 {weatherData?.weather[0]?.description === "rain" ||
                 weatherData?.weather[0]?.description === "fog" ? (
-                  <i className={`wi wi-day-${weatherData?.weather[0]?.description}`}></i>
+                  <i
+                    className={`wi wi-day-${weatherData?.weather[0]?.description}`}
+                  ></i>
                 ) : (
                   <i className="wi wi-day-cloudy"></i>
                 )}
@@ -97,7 +100,7 @@ const Home = () => {
               </div>
             </div>
             <div className="place">{weatherData?.name}</div>
-            <div className="date">{getCurrentDate()}</div>
+            <div className="date">{date}</div>
           </>
         ) : (
           <div className="place">Loading...</div>
