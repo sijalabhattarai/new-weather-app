@@ -17,7 +17,7 @@ const Home = () => {
 
   async function fetchData(cityName) {
     try {
-      const response = await fetch(`https://new-weather-app-snowy.vercel.app/api/weather?address=${cityName}`);
+      const response = await fetch(`http://localhost:3000/api/weather?address=${cityName}`);
 
       const jsonData = (await response.json()).data;
       setWeatherData(jsonData);
@@ -29,7 +29,7 @@ const Home = () => {
   async function fetchDataByCoordinates(latitude, longitude) {
     try {
       const response = await fetch(
-        `https://new-weather-app-snowy.vercel.app/api/weather?lat=${latitude}&lon=${longitude}`
+        `http://localhost:3000/api/weather?lat=${latitude}&lon=${longitude}`
       );
       const jsonData = (await response.json()).data;
       setWeatherData(jsonData);
@@ -111,3 +111,4 @@ const Home = () => {
 };
 
 export default Home;
+
